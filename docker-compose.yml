@@ -1,0 +1,25 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysqldb
+    restart: unless-stopped
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      MYSQL_DATABASE: kaddem_db
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  springboot-app:
+    build:
+      context: C:\Users\LeGaston\Desktop\DevOps\Git\projet2\projet2
+    image: mariembenmabrouk
+    ports:
+      - "8089:8089"
+    depends_on:
+      - mysqldb
+
+volumes:
+  db_vol: {}
