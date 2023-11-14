@@ -12,7 +12,7 @@ services:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=mahdiaouiti
     volumes:
-      - db_vol:/var/lib/mysqldb
+     
 
   departement_app:
     build: ./
@@ -24,5 +24,3 @@ services:
       - mysqldb
 
 
-volumes:
-  db_vol:
